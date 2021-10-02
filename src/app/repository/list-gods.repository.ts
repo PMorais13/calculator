@@ -11,115 +11,172 @@ export class ListGodsRepository {
 
   public gods: Array<God> = [
     {
-      name: 'indefinido',
+      name: {
+        grego: 'error',
+        romano: 'error'
+      },
+      vida: 0,
+      mana: 0,
+      attr: 0
+    },
+    {
+      name: {
+        grego: 'indefinido',
+        romano: 'indefinido'
+      },
       vida: 3,
       mana: 3,
       attr: 0
     },
     {
-      name: 'zeus',
+      name: {
+        grego: 'zeus',
+        romano: 'jupiter'
+      },
       vida: 8,
       mana: 6,
       attr: 0
     },
     {
-      name: 'poseidon',
+      name: {
+        grego: 'poseidon',
+        romano: 'netuno'
+      },
       vida: 8,
       mana: 6,
       attr: 0
     },
     {
-      name: 'hades',
+      name: {
+        grego: 'hades',
+        romano: 'plutao'
+      },
       vida: 5,
       mana: 9,
       attr: 0
     },
     {
-      name: 'demeter',
+      name: {
+        grego: 'demeter',
+        romano: 'ceres'
+      },
       vida: 5,
       mana: 7,
       attr: 0
     },
     {
-      name: 'ares',
+      name: {
+        grego: 'ares',
+        romano: 'marte'
+      },
       vida: 9,
       mana: 3,
       attr: 0
     },
     {
-      name: 'atena',
+      name: {
+        grego: 'atena',
+        romano: 'atena'
+      },
       vida: 7,
       mana: 5,
       attr: 0
     },
     {
-      name: 'apolo',
+      name: {
+        grego: 'apolo',
+        romano: 'febo'
+      },
       vida: 4,
       mana: 8,
       attr: 0
     },
     {
-      name: 'hefesto',
+      name: {
+        grego: 'hefesto',
+        romano: 'vulcano'
+      },
       vida: 6,
       mana: 6,
       attr: 0
     },
     {
-      name: 'afrodite',
+      name: {
+        grego: 'afradite',
+        romano: 'venus'
+      },
       vida: 5,
       mana: 7,
       attr: 0
     },
     {
-      name: 'hermes',
+      name: {
+        grego: 'hermes',
+        romano: 'mercurio'
+      },
       vida: 6,
       mana: 6,
       attr: 0
     },
     {
-      name: 'dionisio',
+      name: {
+        grego: 'dionisio',
+        romano: 'baco'
+      },
       vida: 6,
       mana: 6,
       attr: 0
     },
     {
-      name: 'satiros',
+      name: {
+        grego: 'satiros',
+        romano: 'faunos'
+      },
       vida: 5,
       mana: 7,
       attr: 0
     },
     {
-      name: 'hypnos',
+      name: {
+        grego: 'hypnos',
+        romano: 'somnus'
+      },
       vida: 4,
       mana: 8,
       attr: 0
     },
     {
-      name: 'hecate',
+      name: {
+        grego: 'hecate',
+        romano: 'magia'
+      },
       vida: 3,
       mana: 9,
       attr: 0
     },
     {
-      name: 'quione',
+      name: {
+        grego: 'phobos',
+        romano: 'timmor'
+      },
       vida: 4,
       mana: 8,
       attr: 0
     },
     {
-      name: 'phobos',
-      vida: 4,
-      mana: 8,
-      attr: 0
-    },
-    {
-      name: 'belona',
+      name: {
+        grego: 'belona',
+        romano: 'belona'
+      },
       vida: 7,
       mana: 5,
       attr: 0
     },
     {
-      name: 'iris',
+      name: {
+        grego: 'iris',
+        romano: 'arcus'
+      },
       vida: 5,
       mana: 7,
       attr: 0
@@ -128,91 +185,136 @@ export class ListGodsRepository {
 
   public group: Array<God> = [
     {
-      name: 'nenhum',
+      name: {
+        grego: 'nenhum',
+        romano: 'nenhum'
+      },
       vida: 0,
       mana: 0,
       attr: 0
     },
     {
-      name: 'hera',
+      name: {
+        grego: 'hera',
+        romano: 'juno'
+      },
       vida: 2,
       mana: 3,
       attr: 0
     },
     {
-      name: 'artemis',
+      name: {
+        grego: 'artemis',
+        romano: 'artemis'
+      },
       vida: 2,
       mana: 3,
       attr: 0
     },
     {
-      name: 'artemisMortal',
+      name: {
+        grego: 'artemismortal',
+        romano: 'artemismortal'
+      },
       vida: 5,
       mana: 12,
       attr: 0
     },
     {
-      name: 'hestia',
+      name: {
+        grego: 'hestia',
+        romano: 'vesta'
+      },
       vida: 1,
       mana: 4,
       attr: 0
     },
     {
-      name: 'tanatos',
+      name: {
+        grego: 'tanatos',
+        romano: 'mors'
+      },
       vida: 2,
       mana: 3,
       attr: 0
     },
     {
-      name: 'pa',
+      name: {
+        grego: 'pa',
+        romano: 'pan'
+      },
       vida: 3,
       mana: 2,
       attr: 0
     },
     {
-      name: 'heracles',
+      name: {
+        grego: 'heracles',
+        romano: 'hercules'
+      },
       vida: 4,
       mana: 1,
       attr: 0
     },
     {
-      name: 'turtur',
+      name: {
+        grego: 'turtur',
+        romano: 'turtur'
+      },
       vida: 4,
       mana: 1,
       attr: 0
     },
     {
-      name: 'aquila',
+      name: {
+        grego: 'aquila',
+        romano: 'aquila'
+      },
       vida: 3,
       mana: 2,
       attr: 0
     },
     {
-      name: 'corvus',
+      name: {
+        grego: 'corvus',
+        romano: 'corvus'
+      },
       vida: 1,
       mana: 4,
       attr: 0
     },
     {
-      name: 'eris',
+      name: {
+        grego: 'eris',
+        romano: 'discordia'
+      },
       vida: 1,
       mana: 4,
       attr: 0
     },
     {
-      name: 'amazonas',
+      name: {
+        grego: 'amazonas',
+        romano: 'amazonas'
+      },
       vida: 3,
       mana: 2,
       attr: 0
     },
     {
-      name: 'selene',
+      name: {
+        grego: 'selene',
+        romano: 'luna'
+      },
       vida: 1,
       mana: 4,
       attr: 0
     },
     {
-      name: 'ceos',
+      name: {
+        grego: 'ceos',
+        romano: 'ceos'
+      },
       vida: 2,
       mana: 3,
       attr: 0

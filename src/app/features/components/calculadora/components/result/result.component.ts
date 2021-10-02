@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit, OnDestroy{
   public set form(form: FormGroup) {
     this.level = form.controls.nivel.value;
     this.god = this.getGod(form.controls?.progenitor.value);
-    this.group = this.getGroup(form.controls.grupo.value);
+    this.group = this.getGod(form.controls.grupo.value);
   }
   public result: any;
   private level!: number;
@@ -43,30 +43,24 @@ export class ResultComponent implements OnInit, OnDestroy{
 
   /**
    * metodo responsável por achar o Deus digitado pelo user na lista de deuses
-   * @param god deus digitado pelo user
+   * @param param deus digitado pelo user
    * @returns deus selecionado
    */
-  public getGod(god: string): God {
-
-    debugger
-    const progenitor = god.trim().toLowerCase();
-    return this.listGodsRepository.gods.find(god => god.name === progenitor) || this.listGodsRepository.gods[0] ;
-  }
-
-  /**
-   * metodo responsável por achar o Deus digitado pelo user na lista de deuses
-   * @param group deus digitado pelo user
-   * @returns deus selecionado
-   */
-   public getGroup(group: string): God {
-    const progenitor = group.trim().toLowerCase();
-    return this.listGodsRepository.group.find(group => group.name === progenitor) || this.listGodsRepository.group[0];
+  public getGod(param: string): God {
+    if (!param) {
+      param = 'error';
+    }
+    const progenitor = param.trim().toLowerCase();
+    return this.listGodsRepository.gods.find(param => param.name.grego === progenitor || param.name.romano === progenitor) || this.listGodsRepository.gods[0] ;
   }
 
   /**
    * metodo responsável por calcular quanto de vida o user irá ganhar por nível de acordo com o Deus
    */
   public hpOrManaPerLvlGod(param: number): number {
+    if (!param || this.level === 1){
+      return 0
+    }
     const hpTotal = param * (this.level - 1);
     return hpTotal;
   }
@@ -76,6 +70,9 @@ export class ResultComponent implements OnInit, OnDestroy{
    * @returns quantidade de vida ou energia
    */
   public hpOrManaPerLvl(): number {
+    if (this.level < 10){
+      return 0
+    }
     if(this.level >= 10 && this.level <=14){
       return 20;
     }

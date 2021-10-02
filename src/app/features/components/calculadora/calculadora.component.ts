@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ListGodsRepository } from 'src/app/repository/list-gods.repository';
 import { God } from '../../interfaces/god.interface';
 
@@ -25,7 +25,7 @@ export class CalculadoraComponent implements OnInit {
 
   ngOnInit() {
     this.form = this._formBuilder.group({
-      nivel: [null],
+      nivel: [null, [Validators.minLength(1)]],
       progenitor: [null],
       grupo: [null]
     });
