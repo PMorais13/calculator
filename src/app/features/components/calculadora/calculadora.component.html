@@ -1,44 +1,66 @@
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button>
-
-<mat-stepper linear #stepper>
-<!-- #docregion editable -->
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-<!-- #enddocregion editable -->
-    <form [formGroup]="firstFormGroup">
+<mat-stepper class="calc rounded shadow" orientation="vertical" [linear]="false" #stepper>
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
 <!-- #docregion step-label -->
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Qual seu nível?</ng-template>
 <!-- #enddocregion step-label -->
       <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+        <mat-label>Exemplo: 15</mat-label>
+        <input type="number" max="30" matInput formControlName="nivel" placeholder="Ex. '15'" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>Próxima</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+
+  <mat-step>
+    <form [formGroup]="form">
+      <ng-template matStepLabel>Qual o seu projenitor?</ng-template>
       <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+        <mat-label>Exemplo: Zeus</mat-label>
+        <input matInput formControlName="progenitor" placeholder="Ex. 'Zeus'"
                required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próxima</button>
       </div>
     </form>
   </mat-step>
+
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+    <form [formGroup]="form">
+      <ng-template matStepLabel>Qual o seu grupo?</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Exemplo: Zeus</mat-label>
+        <input matInput formControlName="grupo" placeholder="Ex. 'Caçadoras'"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próxima</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="form">
+      <ng-template matStepLabel>Calcular?</ng-template>
+      <div>
+        <h2>Seu nível: {{ this.form.controls.nivel.value }}</h2>
+        <h2>Seu progenitor: {{ this.form.controls.progenitor.value | titlecase }}</h2>
+        <h2>Sua grupo: {{ this.form.controls.grupo.value | titlecase }}</h2>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Confirmar</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepContent>
+      <ng-template matStepLabel>Pronto!</ng-template>
+      <app-result [form]="form"></app-result>
+    </ng-template>
   </mat-step>
 </mat-stepper>

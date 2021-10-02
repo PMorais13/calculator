@@ -1,0 +1,9 @@
+.calc {
+  width: 50%;
+}
+
+@media only screen and (max-width: 750px) {
+  .calc {
+    width: 100%;
+  }
+}

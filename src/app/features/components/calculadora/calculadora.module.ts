@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalculadoraComponent } from './calculadora.component';
-import {MatStepperModule} from '@angular/material/stepper';
-import { CdkStepperModule } from '@angular/cdk/stepper';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DemoMaterialModule } from '../../shared/material.module';
+import { ResultModule } from './components/result/result.module';
 
 
 
@@ -12,10 +11,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatStepperModule,
-    CdkStepperModule,
-    MatFormFieldModule,
+    DemoMaterialModule,
+    ResultModule
   ],
+  exports: [CalculadoraComponent],
   declarations: [CalculadoraComponent]
 })
 export class CalculadoraModule { }
