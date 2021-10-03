@@ -1,45 +1,66 @@
 <mat-stepper class="calc rounded shadow" orientation="vertical" linear #stepper>
-  <mat-step [stepControl]="form.controls.nivel">
+  <mat-step [stepControl]="form.controls.level">
     <form [formGroup]="form">
-<!-- #docregion step-label -->
       <ng-template matStepLabel>Qual seu nível?</ng-template>
-<!-- #enddocregion step-label -->
       <mat-form-field appearance="fill">
-        <mat-label>Exemplo: 15</mat-label>
-        <input type="number" max="30" matInput formControlName="nivel" placeholder="Ex. '15'" required autofocus>
+        <mat-label>Seu nível:</mat-label>
+        <input type="number" max="30" matInput formControlName="level" placeholder="Ex. '15'" required autofocus>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext [disabled]="form.controls.nivel.invalid">Próxima</button>
+        <button mat-button matStepperNext [disabled]="form.controls.level.invalid">Próxima</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="form.controls.progenitor">
+  <mat-step [stepControl]="form.controls.god">
     <form [formGroup]="form">
-      <ng-template matStepLabel>Qual o seu projenitor?</ng-template>
+      <ng-template matStepLabel>Qual o seu progenitor?</ng-template>
       <mat-form-field appearance="fill">
-        <mat-label>Exemplo: Zeus</mat-label>
-        <input matInput formControlName="progenitor" placeholder="Ex. 'Zeus'"
-               required autofocus>
+        <mat-label>Nome do Deus</mat-label>
+        <input type="text"
+              matInput
+              formControlName="god"
+              required
+              [matAutocomplete]="autoGod">
+          <mat-autocomplete #autoGod="matAutocomplete">
+            <mat-optgroup *ngFor="let god of stateListGod | async" [label]="god.letter">
+              <mat-option *ngFor="let name of god.names" [value]="name">
+                {{name}}
+              </mat-option>
+          </mat-optgroup>
+        </mat-autocomplete>
+        <!-- <mat-label>Nome do Deus:</mat-label>
+        <input matInput formControlName="god" placeholder="Ex. 'Zeus'"
+               required autofocus> -->
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-button matStepperNext [disabled]="form.controls.progenitor.invalid">Próxima</button>
+        <button mat-button matStepperNext [disabled]="form.controls.god.invalid">Próxima</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="form.controls.grupo">
+  <mat-step [stepControl]="form.controls.group">
     <form [formGroup]="form">
       <ng-template matStepLabel>Qual o seu grupo?</ng-template>
       <mat-form-field appearance="fill">
-        <mat-label>Exemplo: Zeus</mat-label>
-        <input matInput formControlName="grupo" placeholder="Ex. 'Caçadoras'"
-               required autofocus>
+        <mat-label>Nome do Deus patrono do grupo</mat-label>
+        <input type="text"
+              matInput
+              formControlName="group"
+              required
+              [matAutocomplete]="autoGroup">
+          <mat-autocomplete #autoGroup="matAutocomplete">
+            <mat-optgroup *ngFor="let group of stateListGroup | async" [label]="group.letter">
+              <mat-option *ngFor="let name of group.names" [value]="name">
+                {{name}}
+              </mat-option>
+          </mat-optgroup>
+        </mat-autocomplete>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-button matStepperNext [disabled]="form.controls.grupo.invalid">Próxima</button>
+        <button mat-button matStepperNext [disabled]="form.controls.group.invalid">Próxima</button>
       </div>
     </form>
   </mat-step>
@@ -49,9 +70,23 @@
       <ng-template matStepLabel>Calcular?</ng-template>
       <ng-template matStepContent>
         <div>
-          <h2>Seu nível: {{ this.form.controls.nivel.value }}</h2>
-          <h2>Seu progenitor: {{ this.form.controls.progenitor.value | titlecase }}</h2>
-          <h2>Sua grupo: {{ this.form.controls.grupo.value | titlecase }}</h2>
+          <h2>Seu nível: {{ this.form.controls.level.value }}</h2>
+          <h2>Seu Deus: {{ this.form.controls.god.value | titlecase }}</h2>
+          <h2>Sua Grupo: {{ this.form.controls.group.value | titlecase }}</h2>
+          <button mat-button matStepperPrevious>Voltar</button>
+          <button (click)="calcAttr()" mat-button matStepperNext [disabled]="form.invalid">Confirmar</button>
+        </div>
+      </ng-template>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>Escolha seus atributos:</ng-template>
+      <ng-template matStepContent>
+        <div>
+          <h3>{{result.totalLife}}</h3>
+
           <button mat-button matStepperPrevious>Voltar</button>
           <button mat-button matStepperNext [disabled]="form.invalid">Confirmar</button>
         </div>
@@ -64,7 +99,7 @@
     <ng-template matStepContent>
       <div>
         <ng-template matStepLabel>Pronto!</ng-template>
-        <app-result [form]="form"></app-result>
+        <app-result [result]="result"></app-result>
       </div>
     </ng-template>
   </mat-step>

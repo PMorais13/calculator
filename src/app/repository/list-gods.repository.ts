@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { God } from "../features/interfaces/god.interface";
+import { ListGods } from "../features/interfaces/list-gods.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -183,7 +184,7 @@ export class ListGodsRepository {
     },
   ]
 
-  public group: Array<God> = [
+  public groups: Array<God> = [
     {
       name: {
         grego: 'nenhum',
@@ -320,4 +321,112 @@ export class ListGodsRepository {
       attr: 0
     }
   ]
+
+  public listNamesGod: Array<any> = [
+    {
+      letter: 'A',
+      names: ['Ares', 'Atena', 'Apolo', 'Afradite', 'Arcus', 'Artemis', 'Artemis Mortal', 'Aquila', 'Amazonas']
+    }, {
+    letter: 'B',
+    names: ['Baco', 'Belona']
+    }, {
+    letter: 'C',
+    names: ['Ceres', 'Corvus', 'Ceos']
+  }, {
+    letter: 'D',
+    names: ['Demeter', 'Dionisio', 'Discordia']
+  }, {
+    letter: 'E',
+    names: ['Eris']
+  }, {
+    letter: 'F',
+    names: ['Febo', 'Faunos']
+  }, {
+    letter: 'H',
+    names: ['Hades', 'Hefesto', 'Hermes', 'Hypnos', 'Hecate', 'Hera', 'Hestia', 'Heracles', 'Hercules']
+  }, {
+    letter: 'I',
+    names: ['Indefinido', 'Iris']
+  }, {
+    letter: 'J',
+    names: ['Jupiter', 'Juno']
+  }, {
+    letter: 'L',
+    names: ['Luna']
+  }, {
+    letter: 'M',
+    names: ['Marte', 'Mercurio', 'Magia', 'Mors']
+  }, {
+    letter: 'N',
+    names: ['Netuno']
+  }, {
+    letter: 'P',
+    names: ['Poseidon', 'Plutao', 'Phobos', 'Pã', 'Pan']
+}, {
+    letter: 'S',
+    names: ['Satiros', 'Somnus', 'Selene']
+}, {
+    letter: 'T',
+    names: ['Timmor', 'Tanatos', 'Turtur']
+}, {
+    letter: 'V',
+    names: ['Vulcano', 'Venus', 'Vesta']
+  }, {
+    letter: 'Z',
+    names: ['Zeus']
+  }]
+
+  public listNamesGroup: Array<any> = [
+    {
+      letter: 'A',
+      names: ['Ares', 'Atena', 'Apolo', 'Afradite', 'Arcus', 'Artemis', 'Artemis Mortal', 'Aquila', 'Amazonas']
+    }, {
+    letter: 'B',
+    names: ['Baco', 'Belona']
+    }, {
+    letter: 'C',
+    names: ['Ceres', 'Corvus', 'Ceos']
+  }, {
+    letter: 'D',
+    names: ['Demeter', 'Dionisio', 'Discordia']
+  }, {
+    letter: 'E',
+    names: ['Eris']
+  }, {
+    letter: 'F',
+    names: ['Febo', 'Faunos']
+  }, {
+    letter: 'H',
+    names: ['Hades', 'Hefesto', 'Hermes', 'Hypnos', 'Hecate', 'Hera', 'Hestia', 'Heracles', 'Hercules']
+  }, {
+    letter: 'I',
+    names: ['Indefinido', 'Iris']
+  }, {
+    letter: 'J',
+    names: ['Jupiter', 'Juno']
+  }, {
+    letter: 'L',
+    names: ['Luna']
+  }, {
+    letter: 'M',
+    names: ['Marte', 'Mercurio', 'Magia', 'Mors']
+  }, {
+    letter: 'N',
+    names: ['Netuno']
+  }, {
+    letter: 'P',
+    names: ['Poseidon', 'Plutao', 'Phobos', 'Pã', 'Pan']
+}, {
+    letter: 'S',
+    names: ['Satiros', 'Somnus', 'Selene']
+}, {
+    letter: 'T',
+    names: ['Timmor', 'Tanatos', 'Turtur']
+}, {
+    letter: 'V',
+    names: ['Vulcano', 'Venus', 'Vesta']
+  }, {
+    letter: 'Z',
+    names: ['Zeus']
+  }]
 }

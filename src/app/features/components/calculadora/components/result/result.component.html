@@ -16,28 +16,21 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">LVL</th>
+      <th scope="col">HAB F</th>
+      <th scope="col">HAB V</th>
+      <th scope="col">ACC</th>
+      <th scope="col">TOTAL</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let attr of attrPrimary">
+      <th scope="row">{{ attr.name }}</th>
+      <td type="input">{{ attr.attrLvl }}</td>
+      <td>{{ attr.attrHabF }}</td>
+      <td>{{ attr.attrHabV }}</td>
+      <td>{{ attr.attrAcc }}</td>
+      <td>{{ attr.attrAcc + attr.attrHabF + attr.attrHabV + attr.attrAcc }}</td>
     </tr>
   </tbody>
 </table>
